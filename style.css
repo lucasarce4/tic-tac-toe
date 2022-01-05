@@ -1,0 +1,379 @@
+*{
+    margin: 0;
+    box-sizing: border-box; 
+}
+
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EEC643;
+}
+
+.header{
+    width: 100%;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    font-family: 'Irish Grover', cursive;
+    font-weight: bold;
+    color: #fd0303f6;
+}
+
+.score{
+    display: flex;
+    gap:150px;
+    font-size: 2.5rem;
+    margin: 15px;
+    font-family: 'Mansalva', cursive;
+    font-weight: bolder;
+    margin-left: -150px;
+}
+
+
+.player2,
+.CPU{
+    visibility: hidden;
+}
+
+.CPU{
+   position: absolute;
+   left: 50%;
+}
+
+.gameboard_display{
+    display: flex;
+    gap:10px
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:15px;
+}
+
+.buttons button,
+#difficulty{
+    width: 200px;
+    height: 60px;
+    border: none;
+    font-family: 'Permanent Marker', cursive;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px rgba(253, 3, 3, 0.965);
+    background-color: #FFC857;
+}
+
+#difficulty{
+    position: absolute;
+    top:98%;
+    left: 35%;
+    width: 100px;
+    height: 30px;
+    font-size: 1rem;
+}
+.buttons button:hover{
+    background-color: #ffb522;
+}
+
+.buttons button:active{
+    background-color: #b87d08;
+}
+
+#Reset{
+    font-size: 2.5rem;
+}
+#changeOpponent{
+    font-size: 1.3rem;
+}
+
+.gameboard_container{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fd0303f6;
+    padding: 20px;
+}
+
+.gameboard_menu-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility:hidden;
+    top:-200%;
+}
+
+.gameboard_menu-container.show{
+    animation: drop 0.7s ease forwards;
+}
+
+.show{
+    visibility: visible;
+}
+.gameboard_menu{
+    background-color: #FFC857;
+    position: absolute;
+    display: flex;
+    width: 640px;
+    height: 450px;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 9px 2px rgba(0,0,0,0.75);
+}
+
+@keyframes drop {
+    0%{opacity: 0;}
+    70%{transform: translateY(210%)}
+    100%{transform:translateY(200%);opacity:1;}
+}
+
+
+#play{
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    top: 85%;
+    left: 40%;
+    font-size: 2.5rem;
+    border: none;
+    font-family: 'Permanent Marker', cursive;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px rgba(253, 3, 3, 0.965);
+    background-color: #FFC857;
+}
+
+.gameboard_menu-playerImage{
+    width: 49.5%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:20px ;
+    font-size: 3rem;
+    font-family: 'Mansalva', cursive;
+    font-weight: bolder;
+}
+
+
+@keyframes playerDrop{
+    0%{opacity: 0;}
+    25%{transform: translatex(-15%);opacity: 0;}
+    50%{transform: translateX(-25%);opacity: 0;}
+    75%{transform: translateX(-35%);opacity: 0.5;}
+    100%{transform: translateX(-60%);opacity: 1;}
+}
+
+.gameboard_menu-playerImage img,
+.gameboard_menu-playerTwoImage img,
+.gameboard_menu-cpuImage img{
+    height: 250px;
+}
+
+
+
+.gameboard_menu-playerTwoImage,
+.gameboard_menu-cpuImage{
+    position: absolute;
+    left: 80%;
+    width: 49.5%;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    align-items: center;
+    margin-top:20px ;
+    font-size: 3rem;
+    font-family: 'Mansalva', cursive;
+    font-weight: bolder;
+}
+.show{
+    visibility: visible;
+}
+
+.gameboard_menu-playerTwoImage.show,
+.gameboard_menu-cpuImage.show{
+    animation: playerDrop 0.3s ease-in forwards;
+}
+
+.vsImg img{
+    height: 80px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+.changePlayer button{
+    height: 60px;
+    background:none;
+    border-radius:50% ;
+    text-align: center;
+    font-family: 'Mansalva', cursive;
+    font-size: 40px;
+    font-weight: bolder;
+    position: absolute;
+    left: 78%;
+    top:50%;
+    border:3px solid black;
+    box-shadow: 0px 0px 5px 2px rgba(253, 3, 3, 0.965);
+}
+
+.changePlayer button:hover,
+.buttons button:hover,
+#play:hover,
+#difficulty:hover{
+    background-color: #ffb522;
+}
+
+.changePlayer button:active,
+.buttons button:active,
+#play:active,
+#difficulty:hover{
+    background-color: #b87d08;
+}
+
+
+
+.gameBoard{
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    box-shadow: 0px 0px 9px 2px rgba(253, 3, 3, 0.965);
+}
+
+
+#tile4{
+    border:3px solid black;
+}
+
+#tile1,
+#tile7{
+    border-left: 3px solid black;
+    border-right: 3px solid black;;
+}
+
+#tile3,
+#tile5{
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+.gameBoard_tile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11rem;
+    font-family: 'Finger Paint', cursive;
+    width: 200px;
+    height: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+    .gameBoard{
+        width: 300px;
+        height: 300px;
+    }
+    
+    .gameBoard_tile{
+        width: 100px;
+        height: 100px;
+    }
+
+    .gameboard_display{
+        flex-direction: column;
+    }
+
+    .buttons{
+        flex-direction: row;
+        margin-top: 15px;
+    }
+    .buttons button{
+        width: 150px;
+    }
+    #changeOpponent{
+        font-size: 1.05rem;
+    }
+
+    .header{
+        font-size: 1.8rem;
+        height: 100px;
+    }
+
+    .score{
+        gap:85px;
+        margin-left:30px;
+        font-size: 1.5rem;
+    }
+    .CPU{
+        left: 65%;
+    }
+    .gameboard_menu{
+        width: 340px;
+        height: 500px;
+    }
+
+    .gameboard_menu-playerImage,
+    .gameboard_menu-cpuImage,
+    .gameboard_menu-playerTwoImage{
+        width: 300px;
+        font-size: 2rem;
+    }
+
+    .changePlayer{
+        display: flex;
+        width: 330px;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .changePlayer button{
+        border-radius: 50%;
+        border:3px solid black;
+        width: 60px;
+        height: 60px;
+        top:30%;
+    }
+    .gameboard_menu-playerImage{
+        justify-self: center;
+        margin-left: 7%;
+    }
+    .gameboard_menu-playerImage img,
+    .gameboard_menu-cpuImage img,
+    .gameboard_menu-playerTwoImage img{
+        height: 140px;
+    }
+
+    .gameboard_menu-cpuImage,
+    .gameboard_menu-playerTwoImage{
+        top: 44%;
+        left:60%;
+    }
+    .vsImg img{
+        top: 41.5%;
+        left:42%;
+        height: 40px;
+    }
+    #currentPlayer{
+        padding-left: 8%;
+    }
+
+    .gameBoard_tile{
+        font-size: 5.5rem;
+    }
+    #play{
+        top:88%;
+        left: 30%;
+    }
+    #difficulty{
+        left: 70%;
+        top:79%;
+    }
+}
